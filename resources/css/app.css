@@ -71,21 +71,51 @@ select {
 
 .container {
     width: 1200px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 body {
     background: #f2f2f2;
+
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
 }
 
 /* header */
 header {
     width: 100%;
+    height: 60px;
     background: white
 }
 
 .header-content {
     display: flex;
+    align-items: center;
+    height: 100%;
 }
 
+.search {
+    margin-left: 15%;
+    width: 25%;
+}
+
+.search-input {
+    width: 100%;
+    padding-left: 5px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+}
+
+.notifications {
+    margin-left: 5%;
+}
+
+.notifications a {
+    color: #757575;
+}
+
+.account {
+    margin-left: 35%;
+}

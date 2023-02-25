@@ -10,7 +10,12 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
 
-    @vite(['resources/css/app.css'])
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&family=Roboto:wght@400;500;700;900&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+
+    @vite(['resources/css/app.css', 'resources/css/fonts.css'])
 </head>
 <body>
     <div id="app">
