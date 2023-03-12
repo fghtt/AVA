@@ -14,6 +14,9 @@
                 <div class="account">
                     <span>Your Name</span>
                 </div>
+                <div class="logout">
+                    <a class="link" href="#" @click.prevent="logout">Выйти</a>
+                </div>
             </div>
         </div>
     </header>
@@ -21,7 +24,15 @@
 
 <script>
 export default {
-    name: "Header"
+    name: "Header",
+    methods: {
+        logout() {
+            axios.post('/logout')
+                .then(res => {
+                    this.$router.push({name: 'login'})
+                })
+        }
+    }
 }
 </script>
 
