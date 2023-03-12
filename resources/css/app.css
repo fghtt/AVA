@@ -119,3 +119,43 @@ header {
 .account {
     margin-left: 35%;
 }
+
+/* Forms */
+.form {
+    background: white;
+    border-radius: 8px;
+    width: 350px;
+    margin: 50px auto 0 auto;
+    padding: 5px;
+}
+
+.form-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.form-top_h1 {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #212121;
+}
+
+.btn {
+    cursor: pointer;
+    background: black;
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    padding: 10px;
+    transition: all 1s ease;
+}
+
+.btn:hover {
+    background: #aeafb5;
+    color: black;
+}

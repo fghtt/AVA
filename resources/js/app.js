@@ -1,12 +1,14 @@
 import './bootstrap';
 import { createApp } from 'vue';
+import {router} from "./router/router";
+
+axios.defaults.withCredentials = true;
 
 const app = createApp({});
 
 import Index from "./components/Index.vue";
-import Header from "./components/Header.vue";
 
 app.component('index', Index);
-app.component('Header', Header);
 
+app.use(router)
 app.mount('#app');
