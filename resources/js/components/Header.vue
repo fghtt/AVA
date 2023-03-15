@@ -14,24 +14,19 @@
                 <div class="account">
                     <span>Your Name</span>
                 </div>
-                <div class="logout">
-                    <a class="link" href="#" @click.prevent="logout">Выйти</a>
-                </div>
+                <Logout></Logout>
             </div>
         </div>
     </header>
 </template>
 
 <script>
+import Logout from "./Logout.vue";
+
 export default {
     name: "Header",
-    methods: {
-        logout() {
-            axios.post('/logout')
-                .then(res => {
-                    this.$router.push({name: 'login'})
-                })
-        }
+    components: {
+        Logout
     }
 }
 </script>

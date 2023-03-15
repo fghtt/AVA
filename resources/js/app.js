@@ -6,7 +6,7 @@ axios.defaults.withCredentials = true;
 
 const app = createApp({});
 
-import Index from "./components/Index.vue";
+import Index from "./Index.vue";
 
 app.component('index', Index);
 
