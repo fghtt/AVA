@@ -12,7 +12,7 @@
                     <a href="#"><i class="fa fa-bell"></i></a>
                 </div>
                 <div class="account">
-                    <span>Your Name</span>
+                    <span>{{ user.name }}</span>
                 </div>
                 <Logout></Logout>
             </div>
@@ -25,6 +25,15 @@ import Logout from "./Logout.vue";
 
 export default {
     name: "Header",
+    data() {
+        return {
+            user: {}
+        }
+    },
+    mounted() {
+        this.$store.dispatch('setUser')
+        this.user = this.$store.getters.user
+    },
     components: {
         Logout
     }

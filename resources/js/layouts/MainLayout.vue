@@ -7,6 +7,9 @@
 import Header from "../components/Header.vue";
 export default {
     name: "MainLayout",
+    mounted() {
+
+    },
     components: {
         Header
     }

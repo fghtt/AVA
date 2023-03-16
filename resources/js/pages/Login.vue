@@ -32,13 +32,7 @@ export default {
     },
     methods: {
         login() {
-            axios.get('/sanctum/csrf-cookie').then(res => {
-                axios.post('/login', this.data)
-                    .then(res => {
-                        localStorage.setItem('x-xsrf-token', res.config.headers['X-XSRF-TOKEN'])
-                        this.$router.push({name: 'index'})
-                    })
-            })
+            this.$store.dispatch('login', this.data);
         }
     }
 }

@@ -1,6 +1,7 @@
 import './bootstrap';
 import { createApp } from 'vue';
-import {router} from "./router/router";
+import router from "./router/router";
+import store from "./store";
 
 axios.defaults.withCredentials = true;
 
@@ -11,4 +12,5 @@ import Index from "./Index.vue";
 app.component('index', Index);
 
 app.use(router)
+app.use(store)
 app.mount('#app');
