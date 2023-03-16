@@ -23,8 +23,8 @@ class PostService
      * @param array $data
      * @return void
      */
-    public function update(array $data)
+    public function update(Post $post, array $data)
     {
-
+        $post->update($data);
     }
 }

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
+
+    /**
+     * The guarded fields
+     *
+     * @var array
+     */
+    protected $guarded = [];
 }

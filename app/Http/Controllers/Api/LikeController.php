@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\Like\StoreRequest;
-use App\Http\Requests\Like\UpdateRequest;
-use App\Http\Resources\LikeResource;
 use App\Models\Like;
+use App\Models\Post;
 use App\Services\LikeService;
 
 class LikeController
@@ -15,7 +14,7 @@ class LikeController
      *
      * @var LikeService
      */
-    private $serivce;
+    private $service;
 
     /**
      * Creates a new LikeController instance
@@ -25,7 +24,7 @@ class LikeController
      */
     public function __construct(LikeService $service)
     {
-        $this->serivce = $service;
+        $this->service = $service;
     }
 
     /**
@@ -38,7 +37,8 @@ class LikeController
     {
         $data = $request->validated();
         $data['user_id'] = auth()->user()->id;
-        $this->serivce->store($data);
+        $this->service->store($data);
+
         return response()
             ->json(['message' => 'created'])
             ->setStatusCode(201);
@@ -50,9 +50,9 @@ class LikeController
      * @param Like $post
      * @return void
      */
-    public function delete(Like $post)
+    public function delete(Post $post)
     {
-        $post->delete();
+        $this->service->delete($post);
         return response()
             ->json(['message' => 'deleted'])
             ->setStatusCode(200);

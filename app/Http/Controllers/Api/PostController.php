@@ -64,10 +64,8 @@ class PostController
     public function update(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
-        $this->serivce->update();
-        return response()
-            ->json(['message' => 'updated'])
-            ->setStatusCode(204);
+        $this->serivce->update($post, $data);
+        return response()->setStatusCode(204);
     }
 
     /**
