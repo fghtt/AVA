@@ -2,41 +2,30 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\Post\StoreRequest;
-use App\Http\Requests\Post\UpdateRequest;
-use App\Http\Resources\PostResource;
-use App\Models\Post;
-use App\Services\PostService;
+use App\Http\Requests\Comment\StoreRequest;
+use App\Http\Requests\Comment\UpdateRequest;
+use App\Http\Resources\CommentResource;
+use App\Models\Comment;
+use App\Services\CommentService;
 
-class PostController
+class CommentController
 {
     /**
-     * The PostService
+     * The CommentService
      *
-     * @var PostService
+     * @var CommentService
      */
     private $serivce;
 
     /**
-     * Creates a new PostController instance
+     * Creates a new CommentController instance
      *
-     * @param PostService $service
+     * @param CommentService $service
      * @return void
      */
-    public function __construct(PostService $service)
+    public function __construct(CommentService $service)
     {
         $this->serivce = $service;
-    }
-
-    /**
-     * Get list a entries
-     *
-     * @return void
-     */
-    public function index()
-    {
-        $posts = Post::all();
-        return PostResource::collection($posts);
     }
 
     /**
@@ -48,6 +37,7 @@ class PostController
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+        $data['user_id'] = auth()->user()->id;
         $this->serivce->store($data);
         return response()
             ->json(['message' => 'created'])
@@ -58,13 +48,13 @@ class PostController
      * Updates an entry
      *
      * @param UpdateRequest $request
-     * @param Post $post
+     * @param Comment $comment
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdateRequest $request, Post $post)
+    public function update(UpdateRequest $request, Comment $comment)
     {
         $data = $request->validated();
-        $this->serivce->update($post, $data);
+        $this->serivce->update($comment, $data);
         return response()
             ->json()
             ->setStatusCode(204);
@@ -73,12 +63,12 @@ class PostController
     /**
      * Deletes an entry
      *
-     * @param Post $post
+     * @param Comment $comment
      * @return void
      */
-    public function delete(Post $post)
+    public function delete(Comment $comment)
     {
-        $post->delete();
+        $comment->delete();
         return response()
             ->json(['message' => 'deleted'])
             ->setStatusCode(200);
