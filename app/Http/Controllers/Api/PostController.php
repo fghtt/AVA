@@ -79,5 +79,8 @@ class PostController
     public function delete(Post $post)
     {
         $post->delete();
+        return response()
+            ->json(['message' => 'deleted'])
+            ->setStatusCode(200);
     }
 }
