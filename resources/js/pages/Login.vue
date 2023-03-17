@@ -5,7 +5,7 @@
         </div>
         <div class="form-body">
             <text-field v-model="data.email" label="Email" name="email"></text-field>
-            <text-field v-model="data.password" label="Пароль" name="password"></text-field>
+            <password-field v-model="data.password" label="Пароль" name="password"></password-field>
         </div>
         <div class="form-bottom">
             <button @click.prevent="login" class="btn">Войти</button>
@@ -16,11 +16,11 @@
 
 <script>
 import textField from "../components/forms/text-field.vue";
-
+import passwordField from "../components/forms/password-field.vue";
 export default {
     name: "Login",
     components: {
-        textField
+        textField, passwordField
     },
     data() {
         return {
